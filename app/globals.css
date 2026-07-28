@@ -14,9 +14,6 @@
   --input: 0 0% 18%;
   --font-display: "Instrument Serif", serif;
   --font-body: "Inter", sans-serif;
-}
-
-@theme inline {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-muted-foreground: hsl(var(--muted-foreground));
@@ -27,7 +24,6 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --font-sans: var(--font-body);
-  --font-display: var(--font-display);
 }
 
 * {
@@ -84,6 +80,7 @@ select {
     rgba(255, 255, 255, 0.45) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;

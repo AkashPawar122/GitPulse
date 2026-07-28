@@ -23,7 +23,7 @@ export const homeStyles = {
   subtitle:
     "animate-fade-rise-delay mt-7 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg",
   formWrapper:
-    "animate-fade-rise-delay-2 mt-10 flex w-full max-w-[700px] flex-col items-center gap-4",
+    "animate-fade-rise-delay-2 mt-10 flex w-full max-w-[721px] flex-col items-center gap-4",
   form: "liquid-glass flex w-full flex-col gap-3 rounded-[2rem] p-3 shadow-[0_26px_90px_rgba(0,0,0,0.32)]",
   label: "flex min-w-0 flex-1 items-center gap-3 px-3 py-2 sm:px-4",
   input:
