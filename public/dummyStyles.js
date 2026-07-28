@@ -18,10 +18,10 @@ export const homeStyles = {
   fadeRise: "animate-fade-rise",
   fadeAway: "animate-fade-away",
   title:
-    "font-display w-full max-w-5xl text-[2.5rem] leading-[1.05] tracking-tight text-white break-words sm:text-6xl md:text-7xl lg:whitespace-nowrap lg:text-[5.5rem] xl:text-[6.5rem]",
-  emphasis: "not-italic text-muted-foreground",
+    "font-display w-full max-w-5xl text-[2.5rem] leading-[1.05] tracking-tight text-white break-words sm:text-6xl md:text-7xl lg:whitespace-nowrap lg:text-[5.5rem] xl:text-[5.5rem]",
+  emphasis: "not-italic text-white/65 text-muted-foreground",
   subtitle:
-    "animate-fade-rise-delay mt-7 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg",
+    "animate-fade-rise-delay mt-7 max-w-2xl text-base leading-7 text-white/40 text-muted-foreground sm:text-lg",
   formWrapper:
     "animate-fade-rise-delay-2 mt-10 flex w-full max-w-[721px] flex-col items-center gap-4",
   form: "liquid-glass flex w-full flex-col gap-3 rounded-[2rem] p-3 shadow-[0_26px_90px_rgba(0,0,0,0.32)]",
@@ -37,7 +37,7 @@ export const homeStyles = {
   yearUnselected: "bg-white/[0.06] text-white/68 hover:text-white",
   submitBtn:
     "liquid-glass rounded-full px-6 py-3 text-sm font-bold text-white transition duration-300 hover:scale-[1.03] hover:bg-white/[0.04] sm:px-7 sm:text-base",
-  footerNote: "text-sm font-medium text-muted-foreground",
+  footerNote: "text-sm font-medium text-white/35 text-muted-foreground",
 
   loadingContainer:
     "animate-fade-rise flex w-full max-w-[700px] flex-col items-center",

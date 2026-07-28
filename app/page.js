@@ -284,7 +284,7 @@ return (
           <div className={`${s.idleContainer} ${status === "leaving" ? s.fadeAway : s.fadeRise}`}>
             <h1 className={s.title}>
               GitPulse,{" "}
-              <em className={s.emphasis}>Wrapped</em> for developer.
+              <em className={s.emphasis}>Wrapped</em> for developer.{" "}
             </h1>
             <p className={s.subtitle}>
               Turn your GitHub activity into a polished year-in-review card.
