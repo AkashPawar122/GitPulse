@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { getWrapped } from "@/lib/github";
+import { getWrapped } from "@/app/lib/github";
 import { ogStyles as s } from "@/public/dummyStyles";
 
 
@@ -106,9 +106,9 @@ function cleanYear(value, fallbackYear) {
 
 function formatYearsLabel(years) {
     const sorted = [...years].sort((a, b) => a - b);
-    const contigous = sorted.every((y, i) => i === 0 || y === sorted[i - 1] + 1);
+    const contiguous = sorted.every((y, i) => i === 0 || y === sorted[i - 1] + 1);
     if (sorted.length === 1) return String(sorted[0]);
-    if (contigous) return `${sorted[0]}-${sorted[sorted.lenth - 1]}`;
+    if (contiguous) return `${sorted[0]}-${sorted[sorted.length - 1]}`;
     return sorted.join(",");
 }
 
@@ -147,7 +147,7 @@ function buildWrapped(results, years) {
 
     const personality = getDeveloperPersonality(
         totals,
-        languages[0]?.namae || base.topLanguage,
+        languages[0]?.name || base.topLanguage,
     );
 
     return {
@@ -156,7 +156,7 @@ function buildWrapped(results, years) {
         year: formatYearsLabel(years),
         topLanguage: languages[0]?.name || base.topLanguage || "Code",
         languages,
-        tag: personality.yag,
+        tag: personality.tag,
         quote: personality.quote,
         display: {
             contributions: compact(totals.contributions),
@@ -264,7 +264,7 @@ export async function GET(request) {
     const totalLangCount = languages.reduce((s, l) => s + l.count, 0) || 1;
     const featured = languages.slice(0, 4);
 
-    const cells = Array.form({ length: 98 }, () => {
+    const cells = Array.from({ length: 98 }, () => {
         const r = Math.random();
         if (r < 0.3) return s.shades[0];
         if (r < 0.52) return s.shades[1];
@@ -274,7 +274,7 @@ export async function GET(request) {
 
     })
 
-    return ImageResponse(
+    return new ImageResponse(
         <div style={s.container}>
             <div style={s.gradientOverlay} />
             <div style={s.glassBorder} />
@@ -284,9 +284,9 @@ export async function GET(request) {
                 ))}
 
             </div>
-            <div styles={s.mainContent}>
-                <div styles={s.header}>
-                    <div className={s.avatarContainer}>
+            <div style={s.mainContent}>
+                <div style={s.header}>
+                    <div style={s.avatarContainer}>
                         <img
                             src={data.avatar}
                             width={120}
@@ -314,109 +314,109 @@ export async function GET(request) {
                             </span>
                         </div>
                     </div>
-
-                    <div style={s.statsRow}>
-                        <div style={s.personalityCard}>
-                            <div style={s.personalityCradContent}>
-                                <div style={s.personalityLabel}>
-                                    DEVELOPER PERSONALITY
-                                </div>
-                                <div style={s.personalityTag}>
-                                    {data.tag}
-                                </div>
-                            </div>
-                            <div style={s.personalityStatsRow}>
-                                {[
-                                    ["Active days", data.display.activeDays],
-                                    ["repos", data.display.repos],
-                                ].map(([Loadable, value]) => (
-                                    <div key={label} style={s.personalityStatItem}>
-                                        <span style={s.statLabel}>{label}
-                                        </span>
-                                        <span style={s.statValue}>{value}
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div style={s.tilesContainer}>
-                            {statCardDefs.map(([label, key, color, renderIcon]) => (
-                                <div
-                                    key={label}
-                                    style={{
-                                        ...s.tileBase,
-                                        boxShadow: `0 12px 35px rgba(0,0,0,.35), 0 0 30px ${color}18, inset 0 12px 0 rgba(255,255,255,.08)`,
-                                    }}
-                                >
-                                <div style = { s.tileHeader } >
-                                { renderIcon(color) }
-                                < span >
-                                { label }
-                                            </span>
-                    </div>
-                    <div style={s.tileValue}>{data.display[key]}
                 </div>
-            </div>
-                                ))}
-        </div>
+                <div style={s.statsRow}>
+                    <div style={s.personalityCard}>
+                        <div style={s.personalityCardContent}>
+                            <div style={s.personalityLabel}>
+                                DEVELOPER PERSONALITY
+                            </div>
+                            <div style={s.personalityTag}>
+                                {data.tag}
+                            </div>
                         </div>
-
-        <div styles={s.footer}>
-            <div style={s.languagesContainer}>
-                <div style={s.languagesHeader}>
-                    <div style={s.languagesTitle}>
-                        Top languages
+                        <div style={s.personalityStatsRow}>
+                            {[
+                                ["Active days", data.display.activeDays],
+                                ["repos", data.display.repos],
+                            ].map(([label, value]) => (
+                                <div key={label} style={s.personalityStatItem}>
+                                    <span style={s.statLabel}>{label}
+                                    </span>
+                                    <span style={s.statValue}>{value}
+                                    </span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                    <div style={s.languagesTotal}> {`${data.contributions.toLocalStorage("en")} total contributions`}</div>
 
-                    </div><div style={s.progressbar}>
-                        {featured.map((lang) => (
+                    <div style={s.tilesContainer}>
+                        {statCardDefs.map(([label, key, color, renderIcon]) => (
                             <div
-                            key={lang.name}
-                            style={{
-                                width: `${Math.max(8, (lang.count / totalLangCount) * 100)}%`,
-                                background: getLanguageColor(lang.name),
-                                            }}
-                                            />
+                                key={label}
+                                style={{
+                                    ...s.tileBase,
+                                    boxShadow: `0 12px 35px rgba(0,0,0,.35), 0 0 30px ${color}18, inset 0 12px 0 rgba(255,255,255,.08)`,
+                                }}
+                            >
+                                <div style={s.tileHeader}>
+                                    {renderIcon(color)}
+                                    <span>
+                                        {label}
+                                    </span>
+                                </div>
+                                <div style={s.tileValue}>{data.display[key]}
+                                </div>
+                            </div>
                         ))}
                     </div>
-                    <div style={s.languagesList}>
-                        {featured.map((lang) => (
-                            <div key={lang.name} style={s.languageItem}>
-                                <span
-                                style={{
-                                    width: 10,
-                                    height: 10,
-                                    borderRadius: 999,
-                                    background: getLanguageColor(lang.name),
-                                }}
+                </div>
+
+                <div style={s.footer}>
+                    <div style={s.languagesContainer}>
+                        <div style={s.languagesHeader}>
+                            <div style={s.languagesTitle}>
+                                Top languages
+                            </div>
+                            <div style={s.languagesTotal}> {`${data.contributions.toLocaleString("en")} total contributions`}</div>
+
+                        </div><div style={s.progressBar}>
+                            {featured.map((lang) => (
+                                <div
+                                    key={lang.name}
+                                    style={{
+                                        width: `${Math.max(8, (lang.count / totalLangCount) * 100)}%`,
+                                        background: getLanguageColor(lang.name),
+                                    }}
                                 />
+                            ))}
+                        </div>
+                        <div style={s.languagesList}>
+                            {featured.map((lang) => (
+                                <div key={lang.name} style={s.languageItem}>
+                                    <span
+                                        style={{
+                                            width: 10,
+                                            height: 10,
+                                            borderRadius: 999,
+                                            background: getLanguageColor(lang.name),
+                                        }}
+                                    />
 
-                                <span>
-                                    {lang.name}
-                                </span>
+                                    <span>
+                                        {lang.name}
+                                    </span>
 
-                                <span style={s.languagePercent}>
-                                    {percent(lang.count, totalLangCount)}
-                                </span>
+                                    <span style={s.languagePercent}>
+                                        {percent(lang.count, totalLangCount)}
+                                    </span>
 
                                 </div>
-                        ))}
-                    </div>
+                            ))}
+                        </div>
 
-                </div>
-                <div style={s.footerRight}>
-                    <div style={s.footerRightTitle}>
-                        {`GitHub Wrapped ${data.year}`}
                     </div>
-                    <div style={s.footerRightSubtitle}>
-                        Made with GitPulse. Build by - Akash Pawar
+                    <div style={s.footerRight}>
+                        <div style={s.footerRightTitle}>
+                            {`GitHub Wrapped ${data.year}`}
+                        </div>
+                        <div style={s.footerRightSubtitle}>
+                            Made with GitPulse. Build by - Akash Pawar
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
         </div>,
-        { width: 1200,height:720 },
+        { width: 1200, height: 720 },
     );
 }
