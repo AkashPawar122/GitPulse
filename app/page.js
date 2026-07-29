@@ -6,7 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import { homeStyles as s } from "@/public/dummyStyles";
 
 const BG_VIDEO =
-  "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260314_131748_f2ca2a28-fed7-44c8-b9a9-bd9acdd5ec31.mp4";
+  "Background.mp4";
 
 const ANALYSIS_STEPS = [
   "Connecting to GitHub profile",
@@ -283,7 +283,7 @@ return (
         {(status === "idle" || status === "leaving") && (
           <div className={`${s.idleContainer} ${status === "leaving" ? s.fadeAway : s.fadeRise}`}>
             <h1 className={s.title}>
-              GitPulse,{" "}
+              GitHub,{" "}
               <em className={s.emphasis}>Wrapped</em> for developer.{" "}
             </h1>
             <p className={s.subtitle}>
