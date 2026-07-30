@@ -161,12 +161,12 @@ function buildWrapped(results, years) {
         display: {
             contributions: compact(totals.contributions),
             commits: compact(totals.commits),
-            prs: compact(totals.prs),
+            prs: compact(totals.pullRequests),
             reviews: compact(totals.reviews),
-            repos: compact(totals.repos),
+            repos: compact(totals.repoCount),
             stars: compact(totals.stars),
             activeDays: compact(totals.activeDays),
-            streak: `$(totals.longestStreak)d`,
+            streak: `${totals.longestStreak}d`,
 
         },
     };
@@ -276,8 +276,8 @@ export async function GET(request) {
 
     return new ImageResponse(
         <div style={s.container}>
-            <div style={s.gradientOverlay} />
-            <div style={s.glassBorder} />
+            <div style={s.gradientOverlay}></div>
+            <div style={s.glassBorder}></div>
             <div style={s.heatmapContainer}>
                 {cells.map((color, i) => (
                     <div key={i} style={{ ...s.heatmapCell, background: color }} />
@@ -368,13 +368,14 @@ export async function GET(request) {
                             <div style={s.languagesTitle}>
                                 Top languages
                             </div>
-                            <div style={s.languagesTotal}> {`${data.contributions.toLocaleString("en")} total contributions`}</div>
+                            <div style={s.languagesTotal}>{`${data.contributions.toLocaleString("en")} total contributions`}</div>
 
                         </div><div style={s.progressBar}>
                             {featured.map((lang) => (
                                 <div
                                     key={lang.name}
                                     style={{
+                                        height: "100%",
                                         width: `${Math.max(8, (lang.count / totalLangCount) * 100)}%`,
                                         background: getLanguageColor(lang.name),
                                     }}

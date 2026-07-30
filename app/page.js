@@ -114,8 +114,8 @@ export default function Home() {
     let cancelled = false;
 
     const progressTimer = setInterval(
-      () => setProgress((v) => Math.min(v + 3, 96)),
-      115,
+      () => setProgress((v) => Math.min(v + 1, 100)),
+      150,
     );
     const stepTimer = setInterval(
       () => setStepIndex((v) => Math.min(v + 1, ANALYSIS_STEPS.length - 1)),
@@ -356,7 +356,7 @@ return (
               </div>
               <div className={s.progressFooter}>
                 <span>{yearsLabel} activity scan </span>
-                <span>{progress}</span>
+                <span>{progress}%</span>
               </div>
               <div className={s.loadingGrid}>
                 {["Commits", "Languages", "Streaks"].map((label, i) => (
