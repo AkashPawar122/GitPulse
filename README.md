@@ -38,4 +38,4 @@ Moving beyond basic profile stats, GitPulse gives developers a visually striking
 
 ### **Live Link**
 
-* 💻 **GitPulse:** [https://gitpulse.vercel.app/](https://gitpulse.vercel.app/)
+* 💻 **GitPulse:** [(https://git-pulse-ebon.vercel.app/)](https://git-pulse-ebon.vercel.app/)
