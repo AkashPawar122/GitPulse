@@ -36,4 +36,6 @@ Moving beyond basic profile stats, GitPulse gives developers a visually striking
 
 ---
 
-**Live Demo:** [https://gitpulse.vercel.app/](https://gitpulse.vercel.app/)
+### **Live Link**
+
+* 💻 **GitPulse:** [https://gitpulse.vercel.app/](https://gitpulse.vercel.app/)
