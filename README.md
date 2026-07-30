@@ -31,6 +31,9 @@ Moving beyond basic profile stats, GitPulse gives developers a visually striking
 ### **Image Generation & Export**
 * 🖼 **Next.js ImageResponse (`next/og`)** — Server-side dynamic Open Graph image generation
 
+### **Deployment**
+* ▲ **Vercel** — Fast, serverless deployment platform optimized for Next.js and Edge functions
+
 ---
 
 **Live Demo:** [https://gitpulse.vercel.app/](https://gitpulse.vercel.app/)
