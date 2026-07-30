@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📊 GitPulse — Real-Time GitHub Activity Analyzer & Card Generator
 
-## Getting Started
+**GitPulse** is a dynamic web application that analyzes real-time GitHub activity to generate stunning, shareable summary cards 🤯. 
 
-First, run the development server:
+Moving beyond basic profile stats, GitPulse gives developers a visually striking way to showcase their yearly contributions, streak milestones, language breakdowns, and custom AI-generated developer archetypes.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔥 Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+* 💻 **Flexible Username Search:** Instantly analyze activity for any public GitHub handle with single or multi-year filters.
+* 📊 **Deep GraphQL Analytics:** Fetches comprehensive metrics directly via the GitHub GraphQL API, including commits, pull requests, code reviews, and earned stars.
+* ✨ **Auto-Generated GitWrapped Card:** Summarizes total contributions, longest active streaks, top languages, and total repository impact in one clean visual.
+* 🖼 **Dynamic Server-Side PNG Generation:** Renders crisp, downloadable summary cards on-demand powered by Next.js `ImageResponse`.
+* 🌐 **Direct Social Sharing:** Instant PNG downloads plus direct one-click sharing triggers for Twitter/X and LinkedIn.
+* 🔄 **Seamless Regeneration:** Reset inputs and switch years or profiles with zero page reloads.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠 Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+### **Frontend & Framework**
+* ⚛️ **React** — Component-driven UI library
+* ▲ **Next.js (App Router)** — React framework providing server components and serverless endpoints
+* 🎨 **Tailwind CSS** — Utility-first styling for a dark-mode-first aesthetic
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **Backend & API**
+* ▲ **Next.js API Routes** — Serverless handlers managing authentication and data transformation
+* 🔌 **GitHub GraphQL API** — Aggregates granular yearly contributions and activity logs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **Image Generation & Export**
+* 🖼 **Next.js ImageResponse (`next/og`)** — Server-side dynamic Open Graph image generation
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Live Demo:** [https://gitpulse.vercel.app/](https://gitpulse.vercel.app/)
